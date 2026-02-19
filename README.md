@@ -1,3 +1,118 @@
+# Legal Document Timeline Extraction System – Frontend
+
+## Overview
+
+This is the Next.js frontend for the Legal Document Timeline Extraction System.
+
+The frontend provides a modern user interface for authentication, document upload, document management, and timeline visualization.
+
+It connects to the FastAPI backend using REST APIs and uses Supabase for authentication.
+
+---
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript (strict mode)
+- Tailwind CSS
+- shadcn/ui
+- Zustand (state management)
+- Axios (API requests)
+- Supabase Auth
+
+---
+
+## Features
+
+- User signup and login
+- JWT-based authentication using Supabase
+- Upload PDF documents
+- View uploaded documents
+- Document status display:
+  - pending
+  - processing
+  - completed
+  - failed
+- Timeline visualization
+- Responsive modern UI
+- Loading and error handling states
+
+---
+
+## Project Structure
+
+
+## Pages Description
+
+### /login
+User login page using Supabase authentication.
+
+### /signup
+User registration page.
+
+### /dashboard
+Main dashboard where users can:
+- Upload documents
+- View uploaded documents
+- Check document status
+
+### /timeline/[documentId]
+Displays extracted timeline events for selected document.
+
+---
+
+## State Management
+
+Uses Zustand for managing global state.
+
+Stores:
+
+authStore.ts
+- User authentication
+- JWT token
+- Login/logout
+
+documentStore.ts
+- Upload document
+- Fetch documents
+- Document status
+
+timelineStore.ts
+- Fetch timeline
+- Store timeline events
+
+---
+
+## API Integration
+
+Frontend connects to FastAPI backend using Axios.
+
+Example configuration:
+
+lib/api.ts
+
+Base URL:
+http://localhost:8000
+
+Endpoints used:
+
+POST /auth/sync-user
+
+POST /documents/upload
+
+GET /documents
+
+GET /timeline/{document_id}
+
+---
+
+## Environment Variables
+
+Create `.env.local` file in frontend folder:
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
